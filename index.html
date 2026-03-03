@@ -1,9 +1,29 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <link rel="icon" type="image/png" href="browserTabImage.png">
     </head>
 
-    <body>
-        <script src="index.js" defer> </script>
-    </body>
+    <center>
+        <body>
+            <script src="index.js" defer> </script>
+
+            <title> Getting Current Weather for a City </title>
+
+            <h1> Getting Current Weather for a City </h1>
+
+            
+                <form name="theForm" id="theForm" action="./index.html" method="POST" target="_self">
+                    <label for="enterCity"> Enter City Name: </label>
+                    <input type="text" id="enterCity" name="enterCity" required="true"> </input>
+
+                    <label for="firstSubmitButtonForForm"> </label>
+                    <input type="submit" value="Submit" id="firstSubmitButtonForForm">  </input>
+                </form>
+            
+
+            <h2 id="cityNameTitle">  </h2>
+
+        </body>
+    </center>
 </html>
