@@ -11,13 +11,21 @@ getFormFirstSubmitButton.addEventListener("click", forFormFirstSubmitButton);
 // This will add the city name onto the HTML page after the user enters it in the textbox
 let cityNameTitleTag = document.getElementById("cityNameTitle");
 
+// Declare other variables to display information on HTML page after fetch data is ran
+let insertWeatherImage = document.getElementById("insertImageForWeather");
+let weatherDescription = document.getElementById("weatherDescription");
+let displayTemperatures = document.getElementById("displayTemperatures");
+
+// More variables declared after GETTING first fetch
 let getCityDataFromWebsite;
 let cityLatitude;
 let cityLongitude;
 
+// More variables declared after GETTING second fetch
 let getCityStatistics;
 let temperature;
 let weatherCode;
+
 
 function forFormFirstSubmitButton(event) {
     event.preventDefault();
@@ -42,8 +50,15 @@ function forFormFirstSubmitButton(event) {
         }
     }
 
-    // console.log(cityName);
+    // Resetting values if submit button is pressed again
     cityNameTitleTag.innerHTML = "";
+
+    insertWeatherImage.src = "";
+    insertWeatherImage.width = 0;
+    insertWeatherImage.length = 0;
+
+    weatherDescription.innerHTML = "";
+    displayTemperatures.innerHTML = "";
 
     let insertCityNameToAPIURL = "";
 
@@ -89,13 +104,10 @@ function forFormFirstSubmitButton(event) {
                     weatherCode = getCityStatistics.current.weather_code;
                     // console.log(weatherCode);
 
-                    let insertWeatherImage = document.createElement("img");
                     // console.log(insertWeatherImage);
                     insertWeatherImage.width = 100;
                     insertWeatherImage.length = 100;
 
-                    let weatherDescription = document.createElement("p");
-                    let displayTemperatures = document.createElement("p");
 
                     if (weatherCode == 0){
                         insertWeatherImage.src = "sunny_weather.png";
@@ -153,11 +165,7 @@ function forFormFirstSubmitButton(event) {
                         console.log("Not found");
                     }
 
-                    document.body.append(insertWeatherImage);
-                    document.body.append(weatherDescription);
-
                     displayTemperatures.innerHTML = ("Temperature: " + temperatureInCelsius + " C / " + temperatureInFarhenheit + " F ");
-                    document.body.append(displayTemperatures);
 
                 }
             )
@@ -169,6 +177,7 @@ function forFormFirstSubmitButton(event) {
 
     // Clear the form console results
     document.getElementById("theForm").reset();
+    
 }
 
 
